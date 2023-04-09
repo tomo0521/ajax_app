@@ -10,7 +10,7 @@ const buildHTML = (XHR) => {
       </div>
     </div>`;
   return html;
-
+};
 
 function post (){
   const submit = document.getElementById("submit");
@@ -29,18 +29,7 @@ function post (){
       };
       const list = document.getElementById("list");
       const formText = document.getElementById("content");
-      console.log(formText.value);
-      const item = XHR.response.post;
-      const html = `
-        <div class="post">
-          <div class="post-date">
-            投稿日時：${item.created_at}
-          </div>
-          <div class="post-content">
-            ${item.content}
-          </div>
-        </div>`;
-      list.insertAdjacentHTML("afterend", html);
+      list.insertAdjacentHTML("afterend", buildHTML(XHR));
       formText.value = "";
     };
   });
